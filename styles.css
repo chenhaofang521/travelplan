@@ -693,7 +693,7 @@ select:focus {
 
 .todo-items {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(2, 1fr);
   gap: 8px;
 }
 
@@ -744,10 +744,8 @@ select:focus {
   text-decoration: line-through;
 }
 
-@media (min-width: 520px) {
-  .todo-items {
-    grid-template-columns: repeat(2, 1fr);
-  }
+.todo-item.todo-item-wide {
+  grid-column: 1 / -1;
 }
 
 @media (min-width: 760px) {

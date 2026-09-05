@@ -546,11 +546,12 @@
           .map((item) => {
             const checked = state[item.id] ? " checked" : "";
             const doneClass = state[item.id] ? " done" : "";
+            const wideClass = item.url ? " todo-item-wide" : "";
             const linkHtml = item.url
               ? `<a class="todo-link" href="${escapeHtml(item.url)}" target="_blank" rel="noopener noreferrer">去填写 ↗</a>`
               : "";
             return `
-              <label class="todo-item${doneClass}">
+              <label class="todo-item${doneClass}${wideClass}">
                 <input type="checkbox" data-todo-id="${escapeHtml(item.id)}"${checked} />
                 <span class="todo-text">${escapeHtml(item.text)}</span>
                 ${linkHtml}
