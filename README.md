@@ -1,6 +1,6 @@
 # 韩国之旅 · 单页旅行网页
 
-这是一个纯前端的单页旅行应用，包含：倒计时、每日真实地图（Leaflet + OpenStreetMap）、每日行程时间轴、共享记账、待办清单和 PWA 离线支持。
+这是一个纯前端的单页旅行应用，包含：简明行程、每日真实地图（Leaflet + OpenStreetMap）、每日行程时间轴、共享记账、待办清单和 PWA 离线支持。
 
 ## 项目结构
 
@@ -43,13 +43,13 @@ korea-trip-app/
 
 ## 共享记账如何配置
 
-记账模块默认使用浏览器 `localStorage`，只在本机保存。要开启多人共享，需要接入 [JSONBin.io](https://jsonbin.io/)：
+记账与待办清单默认使用浏览器 `localStorage`，只在本机保存。要开启多人跨设备同步，需要接入 [JSONBin.io](https://jsonbin.io/)：
 
 1. 注册并登录 JSONBin.io。
 2. 新建一个 Bin，名称随意，内容先填入：
 
    ```json
-   { "expenses": [] }
+   { "expenses": [], "todos": {} }
    ```
 
 3. 复制这个 Bin 的 **Bin ID**。
@@ -64,7 +64,7 @@ korea-trip-app/
    }
    ```
 
-6. 保存并重新部署。所有打开同一页面的家人，会读写同一个 Bin，刷新后即可看到最新账单。
+6. 保存并重新部署。所有打开同一页面的家人，会读写同一个 Bin：记账和待办清单都会实时同步，对方刷新即可看到最新内容。
 
 如果只有 `accessKey` 但写操作失败，请改用 JSONBin 的 **Master Key**，填入 `masterKey` 字段；应用会优先使用 Master Key 进行读写。
 

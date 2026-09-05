@@ -1,14 +1,14 @@
 /* Service Worker：提供离线缓存，同时保证开发期更新能及时生效。 */
 
-const CACHE_NAME = "korea-trip-v11";
+const CACHE_NAME = "korea-trip-v12";
 
 // 预缓存的应用外壳文件。版本号与 index.html 中的引用保持一致。
 const APP_SHELL = [
   "./",
   "./index.html",
-  "./styles.css?v=20260905o",
-  "./app.js?v=20260905o",
-  "./data/trip-data.js?v=20260905o",
+  "./styles.css?v=20260905p",
+  "./app.js?v=20260905p",
+  "./data/trip-data.js?v=20260905p",
   "./manifest.webmanifest",
   "./icons/icon-192.png",
   "./icons/icon-512.png"

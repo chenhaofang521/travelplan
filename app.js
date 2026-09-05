@@ -236,6 +236,7 @@
   // ---------- 4. 共享记账 ----------
   const expenseConfig = DATA.expense;
   let expenses = [];
+  let todos = {};
 
   function getJsonBinConfig() {
     return expenseConfig.jsonBin || {};
@@ -257,7 +258,7 @@
     return headers;
   }
 
-  async function loadExpenses() {
+  async function loadSharedData() {
     if (isSharedMode()) {
       const cfg = getJsonBinConfig();
       try {
@@ -265,25 +266,29 @@
           `https://api.jsonbin.io/v3/b/${encodeURIComponent(cfg.binId)}/latest`,
           { headers: authHeaders(false) }
         );
-        if (!response.ok) throw new Error("读取共享账本失败");
+        if (!response.ok) throw new Error("读取共享数据失败");
         const payload = await response.json();
-        const record = payload.record;
-        expenses = Array.isArray(record) ? record : Array.isArray(record?.expenses) ? record.expenses : [];
-        setExpenseStatus("共享账本已连接（JSONBin）。其他家人刷新后即可看到最新账单。", "ok");
+        const record = payload.record || {};
+        expenses = Array.isArray(record) ? record : Array.isArray(record.expenses) ? record.expenses : [];
+        todos = (record && record.todos && typeof record.todos === "object") ? record.todos : {};
+        setExpenseStatus("共享账本已连接（JSONBin）。记账与待办清单都会跨设备同步。", "ok");
       } catch (error) {
         console.error(error);
-        setExpenseStatus("共享账本读取失败，请检查 binId 与 accessKey。已暂时使用本机缓存。", "error");
+        setExpenseStatus("共享数据读取失败，请检查 binId 与 Key。已暂时使用本机缓存。", "error");
         expenses = readLocalExpenses();
+        todos = readLocalTodos();
       }
     } else {
       expenses = readLocalExpenses();
+      todos = readLocalTodos();
       setExpenseStatus(
-        "当前为本机演示模式：账单只保存在这个浏览器里。要开启多人共享，请在 data/trip-data.js 的 expense.jsonBin 中填入 binId、accessKey（以及有写权限的 masterKey）。",
+        "当前为本机演示模式：数据只保存在这个浏览器里。要开启多人共享，请在 data/trip-data.js 的 expense.jsonBin 中填入 binId 与 Key。",
         "info"
       );
     }
 
     renderExpense();
+    renderChecklist();
   }
 
   function readLocalExpenses() {
@@ -299,7 +304,20 @@
     localStorage.setItem(EXPENSE_LOCAL_KEY, JSON.stringify(expenses));
   }
 
-  async function persistExpenses() {
+  function readLocalTodos() {
+    try {
+      const raw = localStorage.getItem(TODO_KEY);
+      return raw ? JSON.parse(raw) : {};
+    } catch (error) {
+      return {};
+    }
+  }
+
+  function writeLocalTodos() {
+    localStorage.setItem(TODO_KEY, JSON.stringify(todos));
+  }
+
+  async function saveSharedData() {
     if (isSharedMode()) {
       const cfg = getJsonBinConfig();
       try {
@@ -308,20 +326,30 @@
           {
             method: "PUT",
             headers: authHeaders(true),
-            body: JSON.stringify({ expenses })
+            body: JSON.stringify({ expenses, todos })
           }
         );
-        if (!response.ok) throw new Error("写入共享账本失败");
-        setExpenseStatus("共享账本已同步。其他家人刷新后即可看到最新账单。", "ok");
+        if (!response.ok) throw new Error("写入共享数据失败");
+        setExpenseStatus("已同步。其他设备刷新后即可看到最新内容。", "ok");
       } catch (error) {
         console.error(error);
-        setExpenseStatus("同步失败，请检查 accessKey 是否具备写权限；本次修改已临时保留在本机。", "error");
+        setExpenseStatus("同步失败，请检查 Key 是否具备写权限；本次修改已临时保留在本机。", "error");
         writeLocalExpenses();
+        writeLocalTodos();
       }
     } else {
       writeLocalExpenses();
+      writeLocalTodos();
     }
-    renderExpense();
+  }
+
+  let saveTimer = null;
+  function scheduleSave() {
+    if (saveTimer) clearTimeout(saveTimer);
+    saveTimer = window.setTimeout(() => {
+      saveTimer = null;
+      saveSharedData();
+    }, 350);
   }
 
   function setExpenseStatus(message, type) {
@@ -434,7 +462,8 @@
       button.addEventListener("click", () => {
         const id = button.getAttribute("data-id");
         expenses = expenses.filter((item) => item.id !== id);
-        persistExpenses();
+        renderExpense();
+        saveSharedData();
       });
     });
   }
@@ -464,7 +493,8 @@
       };
 
       expenses.push(item);
-      await persistExpenses();
+      renderExpense();
+      saveSharedData();
       form.reset();
       dateInput.value = item.date;
     });
@@ -492,26 +522,13 @@
   }
 
   // ---------- 5. 待办清单 ----------
-  function readTodos() {
-    try {
-      const raw = localStorage.getItem(TODO_KEY);
-      return raw ? JSON.parse(raw) : {};
-    } catch (error) {
-      return {};
-    }
-  }
-
-  function writeTodos(state) {
-    localStorage.setItem(TODO_KEY, JSON.stringify(state));
-  }
-
   function renderChecklist() {
     const container = document.getElementById("todo-groups");
     const progressEl = document.getElementById("todo-progress");
     const progressTextEl = document.getElementById("todo-progress-text");
     if (!container) return;
 
-    const state = readTodos();
+    const state = todos;
     const allItems = [];
 
     DATA.checklist.forEach((group) => {
@@ -552,10 +569,9 @@
 
     container.querySelectorAll("input[type='checkbox']").forEach((input) => {
       input.addEventListener("change", () => {
-        const nextState = readTodos();
-        nextState[input.dataset.todoId] = input.checked;
-        writeTodos(nextState);
+        todos[input.dataset.todoId] = input.checked;
         renderChecklist();
+        scheduleSave();
       });
     });
   }
@@ -657,8 +673,7 @@
     renderExpenseSelects();
     initExpenseForm();
     initFxCalculator();
-    loadExpenses();
-    renderChecklist();
+    loadSharedData();
     renderSkincare();
     renderNotes();
     registerServiceWorker();
