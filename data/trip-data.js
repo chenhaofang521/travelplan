@@ -508,9 +508,9 @@ window.TRIP_DATA = {
     payers: ["我", "先生"],
     // JSONBin.io 共享账本配置。留空时使用 localStorage 本机演示模式。
     jsonBin: {
-      binId: "",
+      binId: "6a9c2d6cf5f4af5e296e3c32",
       accessKey: "",
-      masterKey: ""
+      masterKey: "$2a$10$d8XvxCy7Jr2IUuUAmFvRpOvLR4tw..3VQZxd5xgNnMvE6B5/XvktW"
     }
   }
 };
