@@ -1,0 +1,25 @@
+{
+  "name": "韩国之旅 · 釜山 & 首尔",
+  "short_name": "韩国之旅",
+  "description": "2026 韩国釜山与首尔行程、共享记账与待办清单",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#F5F0EB",
+  "theme_color": "#C4A882",
+  "lang": "zh-CN",
+  "icons": [
+    {
+      "src": "./icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
