@@ -556,7 +556,7 @@ select:focus {
   color: var(--primary-strong);
 }
 
-.summary-card > .exp-total-cny {
+.summary-card > .exp-total-krw {
   color: var(--primary-strong);
   font-weight: 700;
   font-size: 13px;
@@ -601,11 +601,24 @@ select:focus {
 }
 
 .expense-amount {
-  min-width: 76px;
+  min-width: 82px;
   text-align: right;
+  font-variant-numeric: tabular-nums;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+}
+
+.expense-amount .amount-cny {
   font-weight: 800;
   color: var(--primary-strong);
-  font-variant-numeric: tabular-nums;
+  font-size: 15px;
+}
+
+.expense-amount .amount-krw {
+  color: var(--text-soft);
+  font-size: 12px;
 }
 
 .expense-main {

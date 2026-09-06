@@ -391,7 +391,7 @@
 
   function renderExpense() {
     const totalEl = document.getElementById("exp-total");
-    const totalCnyEl = document.getElementById("exp-total-cny");
+    const totalKrwEl = document.getElementById("exp-total-krw");
     const categorySummaryEl = document.getElementById("exp-category-summary");
     const personSummaryEl = document.getElementById("exp-person-summary");
     const listEl = document.getElementById("exp-list");
@@ -406,8 +406,8 @@
       (sum, item) => sum + toBaseAmount(item.amount, item.currency),
       0
     );
-    totalEl.textContent = formatMoney(totalKrw);
-    if (totalCnyEl) totalCnyEl.textContent = "≈ " + formatCny(krwToCny(totalKrw));
+    totalEl.textContent = formatCny(krwToCny(totalKrw));
+    if (totalKrwEl) totalKrwEl.textContent = formatMoney(totalKrw);
 
     const categoryMap = {};
     const personMap = {};
@@ -420,14 +420,14 @@
     categorySummaryEl.innerHTML = Object.entries(categoryMap)
       .map(
         ([name, value]) =>
-          `<span><span>${escapeHtml(name)}</span><strong>${formatMoney(value)}</strong></span>`
+          `<span><span>${escapeHtml(name)}</span><strong>${formatCny(krwToCny(value))}</strong></span>`
       )
       .join("") || `<span class="empty">暂无数据</span>`;
 
     personSummaryEl.innerHTML = Object.entries(personMap)
       .map(
         ([name, value]) =>
-          `<span><span>${escapeHtml(name)}</span><strong>${formatMoney(value)}</strong></span>`
+          `<span><span>${escapeHtml(name)}</span><strong>${formatCny(krwToCny(value))}</strong></span>`
       )
       .join("") || `<span class="empty">暂无数据</span>`;
 
@@ -443,14 +443,18 @@
       listEl.innerHTML = sorted
         .map((item) => {
           const base = toBaseAmount(item.amount, item.currency);
-          const original = item.currency === "KRW" ? formatMoney(item.amount) : `¥${Number(item.amount).toLocaleString("zh-CN")}`;
+          const cny = formatCny(krwToCny(base));
+          const krw = formatMoney(base);
           return `
             <li class="expense-item">
               <div class="expense-main">
                 <strong>${escapeHtml(item.category || "其他")} · ${escapeHtml(item.note || "无备注")}</strong>
-                <small>${escapeHtml(item.payer || "")} · ${escapeHtml(formatDate(item.date))} · ${original}</small>
+                <small>${escapeHtml(item.payer || "")} · ${escapeHtml(formatDate(item.date))}</small>
               </div>
-              <div class="expense-amount">${formatMoney(base)}</div>
+              <div class="expense-amount">
+                <strong class="amount-cny">${cny}</strong>
+                <small class="amount-krw">${krw}</small>
+              </div>
               <button class="expense-delete" type="button" data-id="${escapeHtml(item.id)}" aria-label="删除">×</button>
             </li>
           `;
