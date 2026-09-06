@@ -56,7 +56,7 @@ window.TRIP_DATA = {
         "deoksugung": { name: "德寿宫/贞洞", x: 205, y: 420, lat: 37.5658, lng: 126.9746 },
         "kimchi": { name: "明洞泡菜体验", x: 385, y: 540, lat: 37.5630, lng: 126.9840 },
         "cheonggyecheon": { name: "清溪川", x: 415, y: 460, lat: 37.5702, lng: 126.9787 },
-        "wangbijib": { name: "王妃家明洞店", x: 335, y: 460, lat: 37.5635, lng: 126.9840 },
+        "odarijip": { name: "오다리집 간장게장（酱蟹）", x: 355, y: 550, lat: 37.5612, lng: 126.9860 },
         "anguk": { name: "安国站", x: 440, y: 355, lat: 37.5765, lng: 126.9855 },
         "bukchon": { name: "北村/三清洞", x: 465, y: 270, lat: 37.5810, lng: 126.9840 },
         "tosokchon": { name: "土俗村参鸡汤", x: 345, y: 245, lat: 37.5780, lng: 126.9730 },
@@ -124,7 +124,7 @@ window.TRIP_DATA = {
           "deoksugung",
           "kimchi",
           "cheonggyecheon",
-          "wangbijib"
+          "odarijip"
         ]
       },
       {
@@ -250,7 +250,7 @@ window.TRIP_DATA = {
         { time: "15:30", timezone: "+09:00", title: "德寿宫石墙路 + 贞洞胡同", mapQuery: "덕수궁", note: "比首尔塔轻松的市内散步线；德寿宫门票 ₩1,000。", category: "activity" },
         { time: "16:30", timezone: "+09:00", title: "明洞泡菜制作体验", mapQuery: "명동 김치문화체험관", note: "约60–90分钟；建议提前通过 Klook / Trip.com 预约。", category: "activity" },
         { time: "18:30", timezone: "+09:00", title: "清溪川散步", mapQuery: "청계천", note: "傍晚沿清溪川散步，顺路回明洞。", category: "activity" },
-        { time: "19:00", timezone: "+09:00", title: "晚餐：왕비집 명동중앙점（王妃家 明洞中央店·韩牛）", mapQuery: "왕비집 명동중앙점", note: "韩牛炭火烤肉；只点牛肉，避开猪肉菜单。", category: "meal" }
+        { time: "19:00", timezone: "+09:00", title: "晚餐：오다리집 간장게장（Odarijip·明洞酱蟹）", mapQuery: "오다리집 간장게장 명동", note: "明洞人气酱蟹(간장게장)专门店；生腌花蟹配米饭，无猪肉；对生食海鲜敏感者慎点。地铁4号线明洞站5号口步行约2分钟。", category: "meal" }
       ]
     },
     {
