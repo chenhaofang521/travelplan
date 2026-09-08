@@ -204,7 +204,7 @@ window.TRIP_DATA = {
       stops: [
         { time: "09:00", timezone: "+09:00", title: "釜山站 → 土城站", mapQuery: "부산역", note: "地铁1号线，釜山站到土城站共4站，约10分钟，₩1,600。", category: "metro" },
         { time: "09:20", timezone: "+09:00", title: "土城站 → 甘川文化村", mapQuery: "토성역", note: "6号出口转西区2 / 2-2 / 沙下1-1路小巴，约10分钟，₩1,550；也可打车约 ₩5,000。", category: "bus" },
-        { time: "09:30", timezone: "+09:00", title: "甘川文化村", mapQuery: "감천문화마을", note: "彩色山城、小王子雕塑与壁画阶梯，免费进入，慢走约2小时。", category: "activity" },
+        { time: "09:30", timezone: "+09:00", title: "甘川文化村", mapQuery: "감천문화마을", note: "彩色山城、壁画阶梯，免费进入，慢走约2小时。【拍照机位】小王子与沙漠狐狸雕像（어린왕자와 사막여우 동상），是全村最热门机位，可俯瞰彩色屋海，另有村顶展望台。【怎么去】进村后从游客中心沿主路往上走约10分钟即到小王子像，旺季需排队约20分钟。", category: "activity" },
         { time: "12:15", timezone: "+09:00", title: "午餐：신경북상회（新庆北商会·札嘎其海鲜）", mapQuery: "신경북상회 자갈치시장", note: "螃蟹/龙虾/生鱼片等海鲜，无猪肉。", category: "meal" },
         { time: "13:45", timezone: "+09:00", title: "BIFF广场 / 国际市场 / 龙头山公园", mapQuery: "BIFF광장", note: "步行逛老城区；可在 BIFF 广场吃瓜子糖饼。", category: "activity" },
         { time: "17:00", timezone: "+09:00", title: "晚餐：남포설렁탕（南浦雪浓汤）", mapQuery: "남포설렁탕", note: "24小时牛骨汤老店；点雪浓汤/牛排骨汤，勿点含猪肉的饺子。", category: "meal" },
@@ -223,7 +223,7 @@ window.TRIP_DATA = {
       stops: [
         { time: "08:30", timezone: "+09:00", title: "釜山站 → 西面站 → 海云台站", mapQuery: "부산역", note: "1号线釜山站到西面站6站，换2号线到海云台站16站；全程地铁约 ₩1,800。", category: "metro" },
         { time: "09:15", timezone: "+09:00", title: "海云台站 → 海东龙宫寺", mapQuery: "해운대역", note: "7号出口转181/100/1001路公交，约25–30分钟，₩1,550。", category: "bus" },
-        { time: "10:00", timezone: "+09:00", title: "海东龙宫寺", mapQuery: "해동용궁사", note: "韩国少见的临海寺院，免费，依山面海。", category: "activity" },
+        { time: "10:00", timezone: "+09:00", title: "海东龙宫寺", mapQuery: "해동용궁사", note: "韩国少见的临海寺院，免费，依山面海。【拍照机位】入口广场向下俯瞰「寺院+大海」的全景最佳；寺内極樂殿、龍門石橋与16罗汉像也出片。【怎么去】从公交站/停车场沿石阶一路下行即可到临海大殿。", category: "activity" },
         { time: "12:00", timezone: "+09:00", title: "午餐：일품한우（一品韩牛·海云台）", mapQuery: "일품한우 해운대", note: "梅实韩牛生排骨专门店，无猪肉。", category: "meal" },
         { time: "13:30", timezone: "+09:00", title: "海云台海水浴场 + 冬柏岛 / APEC世峰楼", mapQuery: "해운대해수욕장", note: "沿海步道平缓，适合慢慢散步拍照。", category: "activity" },
         { time: "15:00", timezone: "+09:00", title: "青沙浦拍天空胶囊（不乘车）", mapQuery: "청사포 다릿돌전망대", note: "没买到胶囊票也没关系：直接去青沙浦다릿돌전망대(玻璃栈道)，可俯瞰沿海胶囊轨道与红白灯塔，是拍胶囊的最佳机位。交通：海云台站打车约10分钟(约₩6,000-8,000)，或乘公交100/139路到청사포下车，步行约5分钟。", category: "activity" },
@@ -247,7 +247,7 @@ window.TRIP_DATA = {
         { time: "13:20", timezone: "+09:00", title: "午餐：본죽&비빔밥 서울역점（本粥&拌饭 首尔站店）", mapQuery: "본죽 서울역점", note: "粥或拌饭，无猪肉；在首尔站内解决。", category: "meal" },
         { time: "14:15", timezone: "+09:00", title: "首尔站 → 明洞酒店", mapQuery: "서울역", note: "4号线首尔站到明洞站2站，₩1,550；行李多可打车约 ₩8,000–12,000。", category: "metro" },
         { time: "14:30", timezone: "+09:00", title: "入住宜必思首尔明洞大使酒店", mapQuery: "이비스 앰배서더 서울 명동", note: "办理入住，稍作休息。", category: "hotel" },
-        { time: "15:30", timezone: "+09:00", title: "德寿宫石墙路 + 贞洞胡同", mapQuery: "덕수궁", note: "比首尔塔轻松的市内散步线；德寿宫门票 ₩1,000。", category: "activity" },
+        { time: "15:30", timezone: "+09:00", title: "德寿宫石墙路 + 贞洞胡同", mapQuery: "덕수궁", note: "比首尔塔轻松的市内散步线；德寿宫门票 ₩1,000。【拍照机位】宫外돌담길(石墙路)与大漢门是经典机位，石墙+银杏树很出片。【怎么去】地铁1/2号线市厅(시청)站出站即到，石墙路沿宫墙外侧走一圈。", category: "activity" },
         { time: "16:30", timezone: "+09:00", title: "明洞泡菜制作体验", mapQuery: "명동 김치문화체험관", note: "约60–90分钟；建议提前通过 Klook / Trip.com 预约。", category: "activity" },
         { time: "18:30", timezone: "+09:00", title: "清溪川散步", mapQuery: "청계천", note: "傍晚沿清溪川散步，顺路回明洞。", category: "activity" },
         { time: "19:00", timezone: "+09:00", title: "晚餐：오다리집 간장게장（Odarijip·明洞酱蟹）", mapQuery: "오다리집 간장게장 명동", note: "明洞人气酱蟹(간장게장)专门店；生腌花蟹配米饭，无猪肉；对生食海鲜敏感者慎点。地铁4号线明洞站5号口步行约2分钟。", category: "meal" }
@@ -264,11 +264,11 @@ window.TRIP_DATA = {
       map: { local: "seoul", label: "首尔市区活动" },
       stops: [
         { time: "09:30", timezone: "+09:00", title: "明洞 → 安国站", mapQuery: "명동역", note: "4号线明洞到忠武路1站，换3号线到安国站2站；共3站，₩1,550。", category: "metro" },
-        { time: "09:50", timezone: "+09:00", title: "北村韩屋村 + 三清洞", mapQuery: "북촌한옥마을", note: "传统韩屋、石墙巷与咖啡馆；免费，居民区请保持安静。", category: "activity" },
+        { time: "09:50", timezone: "+09:00", title: "北村韩屋村 + 三清洞", mapQuery: "북촌한옥마을", note: "传统韩屋、石墙巷与咖啡馆；免费，居民区请保持安静。【拍照机位】北村8景里最出片的是韩屋屋脊+远处景福宫/仁王山/青瓦台的俯瞰视角（5~8景一带），以及삼청동돌계단길。【怎么去】从북촌문화센터沿北村路上坡即可逐一打卡，路上有8景指示牌。", category: "activity" },
         { time: "11:15", timezone: "+09:00", title: "午餐：토속촌 삼계탕（土俗村参鸡汤）", mapQuery: "토속촌 삼계탕", note: "人参鸡汤，无猪肉；不接散客预约，建议 11:15 前到。", category: "meal" },
-        { time: "13:00", timezone: "+09:00", title: "昌德宫（可选秘苑）", mapQuery: "창덕궁", note: "门票 ₩3,000；秘苑另加 ₩5,000 且需提前约6天预约。", category: "activity" },
+        { time: "13:00", timezone: "+09:00", title: "昌德宫（可选秘苑）", mapQuery: "창덕궁", note: "门票 ₩3,000；秘苑另加 ₩5,000 且需提前约6天预约。【拍照机位】秘苑芙蓉池(부용지)与亭子是必拍机位，仁政殿前广场也出片。【怎么去】安国站步行约5分钟到敦化门入宫，芙蓉池在秘苑内（需跟导览）。", category: "activity" },
         { time: "15:00", timezone: "+09:00", title: "仁寺洞", mapQuery: "인사동", note: "传统工艺品、画廊、韩纸与传统茶馆。", category: "activity" },
-        { time: "16:30", timezone: "+09:00", title: "晚餐：순희네빈대떡（顺熙家绿豆煎饼·广藏市场）", mapQuery: "순희네빈대떡", note: "绿豆煎饼/拌饭；点餐时说明不要猪肉。", category: "meal" }
+        { time: "16:30", timezone: "+09:00", title: "晚餐：순희네빈대떡（顺熙家绿豆煎饼·广藏市场）", mapQuery: "순희네빈대떡", note: "绿豆煎饼/拌饭；点餐时说明不要猪肉。【拍照机位】市场1层먹거리골목(小吃街)的彩棚与摊档最出片，拍完正好吃。【怎么去】地铁1号线钟路5街(종로5가)站下车即到，小吃街在市场主楼1层。", category: "meal" }
       ]
     },
     {
