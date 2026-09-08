@@ -44,7 +44,7 @@ window.TRIP_DATA = {
         "haedong": { name: "海东龙宫寺", x: 865, y: 55, lat: 35.1880, lng: 129.2230 },
         "ilpum-hanwoo": { name: "一品韩牛", x: 780, y: 240, lat: 35.1640, lng: 129.1650 },
         "haeundae-beach": { name: "海云台海水浴场", x: 760, y: 105, lat: 35.1587, lng: 129.1604 },
-        "sky-capsule": { name: "天空胶囊", x: 835, y: 190, lat: 35.1570, lng: 129.1790 },
+        "cheongsapo-photo": { name: "青沙浦胶囊拍照点", x: 825, y: 115, lat: 35.1715, lng: 129.1890 },
         "geumsu-bokguk": { name: "锦水福汤本店", x: 800, y: 285, lat: 35.1600, lng: 129.1640 },
         "spaland": { name: "SPALAND 汗蒸", x: 660, y: 190, lat: 35.1688, lng: 129.1300 }
       },
@@ -108,7 +108,7 @@ window.TRIP_DATA = {
           "haedong",
           "ilpum-hanwoo",
           "haeundae-beach",
-          "sky-capsule",
+          "cheongsapo-photo",
           "geumsu-bokguk",
           "spaland",
           "ramada"
@@ -214,7 +214,7 @@ window.TRIP_DATA = {
     {
       date: "2026-09-28",
       dayLabel: "第3天 · 9月28日（周一）",
-      title: "海东龙宫寺 + 海云台 + 天空胶囊 + SPALAND 汗蒸",
+      title: "海东龙宫寺 + 海云台 + 青沙浦拍胶囊 + SPALAND 汗蒸",
       hotel: "釜山站温德姆华美达安可酒店",
       hotelAddress: "부산 동구 중앙대로196번길 10（Dong-gu, Busan）",
       startCity: "釜山",
@@ -226,7 +226,7 @@ window.TRIP_DATA = {
         { time: "10:00", timezone: "+09:00", title: "海东龙宫寺", mapQuery: "해동용궁사", note: "韩国少见的临海寺院，免费，依山面海。", category: "activity" },
         { time: "12:00", timezone: "+09:00", title: "午餐：일품한우（一品韩牛·海云台）", mapQuery: "일품한우 해운대", note: "梅实韩牛生排骨专门店，无猪肉。", category: "meal" },
         { time: "13:30", timezone: "+09:00", title: "海云台海水浴场 + 冬柏岛 / APEC世峰楼", mapQuery: "해운대해수욕장", note: "沿海步道平缓，适合慢慢散步拍照。", category: "activity" },
-        { time: "15:00", timezone: "+09:00", title: "海云台蓝线公园 Sky Capsule", mapQuery: "해운대 블루라인파크", note: "尾浦站 ⇄ 青沙浦站；2人舱单程约 ₩40,000–50,000/车。建议提前1–2周预约，日落时段最抢手。", category: "activity" },
+        { time: "15:00", timezone: "+09:00", title: "青沙浦拍天空胶囊（不乘车）", mapQuery: "청사포 다릿돌전망대", note: "没买到胶囊票也没关系：直接去青沙浦다릿돌전망대(玻璃栈道)，可俯瞰沿海胶囊轨道与红白灯塔，是拍胶囊的最佳机位。交通：海云台站打车约10分钟(约₩6,000-8,000)，或乘公交100/139路到청사포下车，步行约5分钟。", category: "activity" },
         { time: "17:30", timezone: "+09:00", title: "晚餐：금수복국 본점（锦水福汤本店·海云台）", mapQuery: "금수복국 본점", note: "河豚汤/海鲜，无猪肉；如不吃河豚可换海鲜锅。", category: "meal" },
         { time: "19:00", timezone: "+09:00", title: "SPALAND 汗蒸（新世界 Centum City）", mapQuery: "스파랜드 센텀시티", note: "韩国顶级汗蒸/温泉，多种主题汗蒸房与足浴；地铁2号线 Centum City（센텀시티）站12号出口约110米，新世界百货1层。营业至22:00（21:00最后入场），需出示证件，建议提前预约/购票。", category: "activity" },
         { time: "21:00", timezone: "+09:00", title: "返回釜山站酒店", mapQuery: "부산역", note: "从 Centum City 站搭2号线回西面站，换1号线到釜山站。", category: "metro" }
@@ -371,7 +371,7 @@ window.TRIP_DATA = {
       category: "预约与软件",
       items: [
         { id: "ktx-busan", text: "购买 9.26 首尔→釜山 KTX" },
-        { id: "sky-capsule", text: "预约 9.28 海云台天空胶囊" },
+        { id: "sky-capsule", text: "天空胶囊不乘车：改去青沙浦拍照点" },
         { id: "spaland", text: "预约 9.28 SPALAND 汗蒸（新世界 Centum City）" },
         { id: "kimchi", text: "预约 9.29 明洞泡菜体验" },
         { id: "clinic-address", text: "确认城南医美诊所名称/地址" },
