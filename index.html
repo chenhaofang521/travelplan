@@ -18,7 +18,7 @@
   <!-- Leaflet 真实地图 -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 
-  <link rel="stylesheet" href="./styles.css?v=20260905u" />
+  <link rel="stylesheet" href="./styles.css?v=20260905v" />
 </head>
 <body>
   <div class="app-shell">
@@ -31,6 +31,15 @@
     </header>
 
     <main class="content">
+      <!-- 航班 & KTX 卡片（置顶，左右滑动） -->
+      <section id="transport" class="module">
+        <div class="module-head">
+          <p class="module-kicker">FLIGHTS & KTX</p>
+          <h2>航班 & KTX</h2>
+        </div>
+        <div class="transport-scroll" id="transport-list"></div>
+      </section>
+
       <!-- 行前准备清单（置顶） -->
       <section id="checklist" class="module">
         <div class="module-head">
@@ -174,7 +183,7 @@
   </div>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script src="./data/trip-data.js?v=20260905u"></script>
-  <script src="./app.js?v=20260905u"></script>
+  <script src="./data/trip-data.js?v=20260905v"></script>
+  <script src="./app.js?v=20260905v"></script>
 </body>
 </html>

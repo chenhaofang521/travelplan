@@ -74,6 +74,37 @@
       .join("");
   }
 
+  function renderTransport() {
+    const listEl = document.getElementById("transport-list");
+    if (!listEl || !DATA.transport || !DATA.transport.length) return;
+
+    const typeMap = {
+      flight: { label: "航班", icon: "✈️" },
+      train: { label: "KTX", icon: "🚄" }
+    };
+
+    listEl.innerHTML = DATA.transport
+      .map((item) => {
+        const type = typeMap[item.type] || { label: item.type, icon: "" };
+        return `
+          <div class="transport-card">
+            <div class="tc-head">
+              <span class="tc-type">${type.icon} ${escapeHtml(type.label)}</span>
+              <span class="tc-code">${escapeHtml(item.code)}</span>
+            </div>
+            <div class="tc-route">
+              <span>${escapeHtml(item.from)}</span>
+              <span class="tc-arrow">→</span>
+              <span>${escapeHtml(item.to)}</span>
+            </div>
+            <div class="tc-meta">${escapeHtml(formatShortDate(item.date))} · ${escapeHtml(item.time)}</div>
+            ${item.note ? `<div class="tc-note">${escapeHtml(item.note)}</div>` : ""}
+          </div>
+        `;
+      })
+      .join("");
+  }
+
   // ---------- 2. 每日行程时间轴 ----------
   const categoryNames = {
     flight: "航班",
@@ -672,6 +703,7 @@
 
   // ---------- 启动 ----------
   document.addEventListener("DOMContentLoaded", () => {
+    renderTransport();
     renderOverview();
     renderItinerary();
     ensureDayMap(0);

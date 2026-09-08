@@ -26,6 +26,46 @@ window.TRIP_DATA = {
     clinicNote: "城南医美诊所具体地址待补充；网页中的 10 月 2 日交通先按“板桥/亭子一带”通用路线标注。"
   },
 
+  // 航班与 KTX 交通卡片（按时间顺序，显示在页面顶部，可左右滑动）。
+  transport: [
+    {
+      date: "2026-09-26",
+      time: "07:55",
+      type: "flight",
+      code: "CX434",
+      from: "香港",
+      to: "首尔仁川",
+      note: "国泰航空，约12:40到仁川"
+    },
+    {
+      date: "2026-09-26",
+      time: "15:45",
+      type: "train",
+      code: "KTX",
+      from: "首尔",
+      to: "釜山",
+      note: "建议订 #181(15:45)/#193(15:50)，约18:03–18:20到"
+    },
+    {
+      date: "2026-09-29",
+      time: "10:28",
+      type: "train",
+      code: "KTX026",
+      from: "釜山",
+      to: "首尔",
+      note: "13:04到首尔 · 12车5A/5B"
+    },
+    {
+      date: "2026-10-03",
+      time: "13:40",
+      type: "flight",
+      code: "CX439",
+      from: "首尔仁川",
+      to: "香港",
+      note: "国泰航空，约16:30到香港"
+    }
+  ],
+
   // 每日市内动线地图：cityPoints 提供各站点的经纬度，dayRoutes 按时间顺序连线。
   map: {
     cityPoints: {
@@ -375,7 +415,10 @@ window.TRIP_DATA = {
         { id: "spaland", text: "预约 9.28 SPALAND 汗蒸（新世界 Centum City）" },
         { id: "kimchi", text: "预约 9.29 明洞泡菜体验" },
         { id: "clinic-address", text: "确认城南医美诊所名称/地址" },
-        { id: "apps", text: "安装 Naver Map、Papago、KORAIL" }
+        { id: "apps", text: "安装 Naver Map、Papago、KORAIL" },
+        { id: "tmoney-app", text: "安装 T-money 卡 APP" },
+        { id: "wifi-pickup", text: "9月26日取随身 Wi-Fi" },
+        { id: "wifi-return", text: "10月3日还随身 Wi-Fi" }
       ]
     }
   ],
@@ -505,7 +548,7 @@ window.TRIP_DATA = {
       CNY: 192.31
     },
     categories: ["餐饮", "交通", "住宿", "购物", "门票", "其他"],
-    payers: ["我", "先生"],
+    payers: ["HF", "BIRD"],
     // JSONBin.io 共享账本配置。留空时使用 localStorage 本机演示模式。
     jsonBin: {
       binId: "6a9c2d6cf5f4af5e296e3c32",
