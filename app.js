@@ -297,8 +297,8 @@
       const cfg = getJsonBinConfig();
       try {
         const response = await fetch(
-          `https://api.jsonbin.io/v3/b/${encodeURIComponent(cfg.binId)}/latest`,
-          { headers: authHeaders(false) }
+          `https://api.jsonbin.io/v3/b/${encodeURIComponent(cfg.binId)}/latest?ts=${Date.now()}`,
+          { headers: authHeaders(false), cache: "no-store" }
         );
         if (!response.ok) throw new Error("读取共享数据失败");
         const payload = await response.json();
@@ -368,7 +368,8 @@
           {
             method: "PUT",
             headers: authHeaders(true),
-            body: JSON.stringify({ expenses, todos })
+            body: JSON.stringify({ expenses, todos }),
+            cache: "no-store"
           }
         );
         if (!response.ok) throw new Error("写入共享数据失败");
