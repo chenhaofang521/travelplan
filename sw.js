@@ -1,14 +1,14 @@
 /* Service Worker：提供离线缓存，同时保证开发期更新能及时生效。 */
 
-const CACHE_NAME = "korea-trip-v18";
+const CACHE_NAME = "korea-trip-v19";
 
 // 预缓存的应用外壳文件。版本号与 index.html 中的引用保持一致。
 const APP_SHELL = [
   "./",
   "./index.html",
-  "./styles.css?v=20260905v",
-  "./app.js?v=20260905v",
-  "./data/trip-data.js?v=20260905v",
+  "./styles.css?v=20260905w",
+  "./app.js?v=20260905w",
+  "./data/trip-data.js?v=20260905w",
   "./manifest.webmanifest",
   "./icons/icon-192.png",
   "./icons/icon-512.png"
@@ -51,6 +51,23 @@ self.addEventListener("fetch", (event) => {
         });
         return cached || network;
       })
+    );
+    return;
+  }
+
+  // 共享账本/待办数据（JSONBin）必须始终读最新，网络优先、离线才回退缓存，
+  // 避免读到缓存的旧账并覆盖掉最新数据。
+  if (url.hostname.includes("api.jsonbin.io")) {
+    event.respondWith(
+      fetch(request)
+        .then((response) => {
+          if (response && response.status === 200) {
+            const clone = response.clone();
+            caches.open(CACHE_NAME).then((cache) => cache.put(request, clone));
+          }
+          return response;
+        })
+        .catch(() => caches.match(request))
     );
     return;
   }

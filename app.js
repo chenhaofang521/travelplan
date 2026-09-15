@@ -268,6 +268,9 @@
   const expenseConfig = DATA.expense;
   let expenses = [];
   let todos = {};
+  // 只有成功从 JSONBin 读取到共享数据后，才允许把本机数据写回共享账本，
+  // 避免某台设备读取失败时，用空的本地数据覆盖其他人刚填写的账目。
+  let sharedLoaded = false;
 
   function getJsonBinConfig() {
     return expenseConfig.jsonBin || {};
@@ -302,9 +305,11 @@
         const record = payload.record || {};
         expenses = Array.isArray(record) ? record : Array.isArray(record.expenses) ? record.expenses : [];
         todos = (record && record.todos && typeof record.todos === "object") ? record.todos : {};
+        sharedLoaded = true;
         setExpenseStatus("共享账本已连接（JSONBin）。记账与待办清单都会跨设备同步。", "ok");
       } catch (error) {
         console.error(error);
+        sharedLoaded = false;
         setExpenseStatus("共享数据读取失败，请检查 binId 与 Key。已暂时使用本机缓存。", "error");
         expenses = readLocalExpenses();
         todos = readLocalTodos();
@@ -350,6 +355,12 @@
 
   async function saveSharedData() {
     if (isSharedMode()) {
+      if (!sharedLoaded) {
+        setExpenseStatus("共享账本尚未成功读取，为避免覆盖其他设备的数据，本次修改已暂时保存在本机。请刷新页面重试连接。", "error");
+        writeLocalExpenses();
+        writeLocalTodos();
+        return;
+      }
       const cfg = getJsonBinConfig();
       try {
         const response = await fetch(
