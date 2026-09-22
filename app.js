@@ -199,6 +199,41 @@
       .filter((point) => point && Number.isFinite(point.lat) && Number.isFinite(point.lng));
   }
 
+  function addBaseLayer(map) {
+    // 先尝试 OpenStreetMap，连续多次加载失败时自动切换到备选底图，
+    // 避免个别网络环境屏蔽 OSM 瓦片后地图只剩灰色底。
+    const providers = [
+      {
+        url: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+        options: { maxZoom: 19, attribution: "&copy; OpenStreetMap contributors" }
+      },
+      {
+        url: "https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}.png",
+        options: { maxZoom: 20, attribution: "&copy; OpenStreetMap contributors &copy; CARTO" }
+      }
+    ];
+
+    let currentIndex = 0;
+    let tileErrors = 0;
+    let layer = null;
+
+    function attach() {
+      layer.on("tileerror", () => {
+        tileErrors += 1;
+        if (tileErrors >= 3 && currentIndex < providers.length - 1) {
+          currentIndex += 1;
+          tileErrors = 0;
+          map.removeLayer(layer);
+          layer = L.tileLayer(providers[currentIndex].url, providers[currentIndex].options).addTo(map);
+          attach();
+        }
+      });
+    }
+
+    layer = L.tileLayer(providers[0].url, providers[0].options).addTo(map);
+    attach();
+  }
+
   function createDayMap(dayIndex) {
     const container = document.querySelector(
       `.day-map-container[data-day-index="${dayIndex}"]`
@@ -213,10 +248,7 @@
       attributionControl: true
     });
 
-    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-      maxZoom: 19,
-      attribution: "&copy; OpenStreetMap contributors"
-    }).addTo(map);
+    addBaseLayer(map);
 
     const latlngs = points.map((point) => [point.lat, point.lng]);
     L.polyline(latlngs, {
