@@ -22,8 +22,8 @@ window.TRIP_DATA = {
   meta: {
     title: "韩国之旅",
     subtitle: "釜山 & 首尔 · 2026.09.26 — 2026.10.03",
-    clinicAddressPending: true,
-    clinicNote: "城南医美诊所具体地址待补充；网页中的 10 月 2 日交通先按“板桥/亭子一带”通用路线标注。"
+    clinicAddressPending: false,
+    clinicNote: "城南医美诊所地址已补充：경기도 성남시 분당구 성남대로 168（금곡동 미도프라자 / Mido Plaza），新盆唐线·盆唐线 미금역 1号出口约100米。"
   },
 
   // 航班与 KTX 交通卡片（按时间顺序，显示在页面顶部，可左右滑动）。
@@ -107,7 +107,7 @@ window.TRIP_DATA = {
         "goryeo-samgyetang": { name: "高丽参鸡汤", x: 260, y: 265, lat: 37.5800, lng: 126.9740 },
         "melody-photo": { name: "首尔旋律旅拍（자하문로 19）", x: 400, y: 155, lat: 37.5780, lng: 126.9735 },
         "taecho-galbi": { name: "太初排骨明洞店", x: 385, y: 480, lat: 37.5625, lng: 126.9840 },
-        "clinic": { name: "城南医美诊所", x: 760, y: 520, lat: 37.3940, lng: 127.1100 },
+        "clinic": { name: "城南医美诊所（미금역 미도프라자）", x: 760, y: 520, lat: 37.3500, lng: 127.1089 },
         "bonjuk-jeongja": { name: "本粥盆塘亭子店", x: 700, y: 575, lat: 37.3660, lng: 127.1060 },
         "bundang-park": { name: "盆塘中央公园", x: 810, y: 440, lat: 37.3760, lng: 127.1000 },
         "bonjuk-myeongdong": { name: "本粥明洞店", x: 390, y: 570, lat: 37.5625, lng: 126.9850 },
@@ -338,11 +338,11 @@ window.TRIP_DATA = {
       startCity: "首尔",
       endCity: "城南市",
       stops: [
-        { time: "09:30", timezone: "+09:00", title: "前往城南市医美诊所（地址待补）", mapQuery: "성남시", note: "若诊所在板桥/亭子一带：4号线明洞→忠武路换3号线→新沙站，换新盆唐线到板桥/亭子/书岘/美金等站；约55–75分钟。", category: "transport" },
-        { time: "10:00", timezone: "+09:00", title: "城南市医美", mapQuery: "성남시", note: "提前15分钟到，带护照并按诊所术前说明执行。", category: "appointment" },
-        { time: "12:00", timezone: "+09:00", title: "午餐：본죽 분당정자느티마을점（本粥 盆塘亭子店）", mapQuery: "본죽 분당정자느티마을점", note: "粥/软食，无猪肉；若诊所近书岘站，可改去 본죽 분당서현점。", category: "meal" },
+        { time: "09:30", timezone: "+09:00", title: "前往城南市医美诊所（미금역 미도프라자）", mapQuery: "미금역", note: "地铁：4号线明洞站→忠武路站（1站）换3号线→新沙站（6站）换新盆唐线→美金站（9站），约55–65分钟，普通卡约₩4,100（含新盆唐线附加费）。1号出口步行约100米即到 Mido Plaza。想省事可打车约₩45,000–55,000、约40–60分钟。", category: "transport" },
+        { time: "10:00", timezone: "+09:00", title: "城南市医美（미도프라자 / Mido Plaza）", mapQuery: "경기도 성남시 분당구 성남대로 168", note: "地址：경기도 성남시 분당구 성남대로 168（금곡동 미도프라자）；英文：168 Seongnam-daero, Bundang-gu, Seongnam-si, Gyeonggi-do；미금역 1号出口约100米。提前15分钟到，带护照并按诊所术前说明执行。", category: "appointment" },
+        { time: "12:00", timezone: "+09:00", title: "午餐：본죽 분당정자느티마을점（本粥 盆塘亭子店）", mapQuery: "본죽 분당정자느티마을점", note: "粥/软食，无猪肉；从미금站搭新盆唐线或盆唐线1站到정자站，或就近在미금站商圏用餐。", category: "meal" },
         { time: "14:00", timezone: "+09:00", title: "盆塘中央公园 / 亭子洞咖啡馆街或休息", mapQuery: "분당중앙공원", note: "术后避免暴晒、饮酒、桑拿和剧烈运动；状态一般就直接回酒店休息。", category: "activity" },
-        { time: "16:30", timezone: "+09:00", title: "返回明洞酒店", mapQuery: "명동역", note: "从盆塘/亭子搭新盆唐线回明洞，约55–70分钟；术后注意休息，避免劳累。", category: "metro" },
+        { time: "16:30", timezone: "+09:00", title: "返回明洞酒店", mapQuery: "명동역", note: "미금站搭新盆唐线→新沙站换3号线→忠武路换4号线→明洞站，约55–65分钟；术后注意休息，避免劳累。", category: "metro" },
         { time: "19:00", timezone: "+09:00", title: "晚餐：본죽&비빔밥 명동점（本粥&拌饭 明洞店）", mapQuery: "본죽 명동점", note: "粥/拌饭，清淡无猪肉。", category: "meal" }
       ]
     },
@@ -414,7 +414,7 @@ window.TRIP_DATA = {
         { id: "sky-capsule", text: "天空胶囊不乘车：改去青沙浦拍照点" },
         { id: "spaland", text: "预约 9.28 SPALAND 汗蒸（新世界 Centum City）" },
         { id: "kimchi", text: "预约 9.29 明洞泡菜体验" },
-        { id: "clinic-address", text: "确认城南医美诊所名称/地址" },
+        { id: "clinic-address", text: "确认城南医美诊所名称/预约（미금역 미도프라자）" },
         { id: "apps", text: "安装 Naver Map、Papago、KORAIL" },
         { id: "tmoney-app", text: "安装 T-money 卡 APP" },
         { id: "wifi-pickup", text: "9月26日取随身 Wi-Fi" },
