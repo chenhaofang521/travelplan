@@ -140,6 +140,7 @@
                 <a class="stop-link" href="${url}" target="_blank" rel="noopener noreferrer">${escapeHtml(stop.title)}</a>
                 <p class="stop-note">${escapeHtml(stop.note || "")}</p>
                 <span class="category-tag">${escapeHtml(categoryName)}</span>
+                ${stop.url ? `<a class="stop-url" href="${escapeHtml(stop.url)}" target="_blank" rel="noopener noreferrer">官网购票 ↗</a>` : ""}
               </li>
             `;
           })
@@ -711,59 +712,22 @@
     });
   }
 
-  // ---------- 明洞药妆 & 护肤推荐 ----------
-  function renderSkincare() {
-    const skincare = DATA.skincare;
-    if (!skincare) return;
+  // ---------- 常用韩语 ----------
+  function renderPhrases() {
+    const phrases = DATA.phrases;
+    const container = document.getElementById("phrases-list");
+    if (!phrases || !container) return;
 
-    const noteEl = document.getElementById("skincare-note");
-    const storesEl = document.getElementById("skincare-stores");
-    const groupsEl = document.getElementById("skincare-groups");
-    const tipsEl = document.getElementById("skincare-tips");
-    if (!noteEl || !storesEl || !groupsEl || !tipsEl) return;
-
-    noteEl.textContent = skincare.note || "";
-
-    storesEl.innerHTML = (skincare.stores || [])
+    container.innerHTML = phrases
       .map(
-        (store) => `
-          <a class="skincare-store" href="${getNaverSearchUrl(store.ko || store.zh)}" target="_blank" rel="noopener noreferrer">
-            <strong>${escapeHtml(store.zh)}</strong>
-            <span class="ko">${escapeHtml(store.ko)}</span>
-            <span class="en">${escapeHtml(store.en)}</span>
-            <p>${escapeHtml(store.note || "")}</p>
-          </a>
+        (phrase) => `
+          <li class="phrase-item">
+            <span class="phrase-zh">${escapeHtml(phrase.zh)}</span>
+            <span class="phrase-ko">${escapeHtml(phrase.ko)}</span>
+            <span class="phrase-pron">${escapeHtml(phrase.pronunciation)}</span>
+          </li>
         `
       )
-      .join("");
-
-    groupsEl.innerHTML = (skincare.groups || [])
-      .map(
-        (group) => `
-          <div class="skincare-group">
-            <h3>${escapeHtml(group.category)}</h3>
-            <ul class="skincare-list">
-              ${(group.items || [])
-                .map(
-                  (item) => `
-                    <li>
-                      <div class="skincare-item">
-                        <strong>${escapeHtml(item.zh)}</strong>
-                        <span class="ko">${escapeHtml(item.ko)}</span>
-                        <span class="en">${escapeHtml(item.en)}</span>
-                      </div>
-                    </li>
-                  `
-                )
-                .join("")}
-            </ul>
-          </div>
-        `
-      )
-      .join("");
-
-    tipsEl.innerHTML = (skincare.tips || [])
-      .map((tip) => `<p>${escapeHtml(tip)}</p>`)
       .join("");
   }
 
@@ -811,7 +775,7 @@
     initExpenseForm();
     initFxCalculator();
     loadSharedData();
-    renderSkincare();
+    renderPhrases();
     renderNotes();
     registerServiceWorker();
   });

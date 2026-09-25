@@ -82,6 +82,7 @@ window.TRIP_DATA = {
         "seomyeon": { name: "西面站", x: 500, y: 420, lat: 35.1570, lng: 129.0590 },
         "haeundae": { name: "海云台站", x: 705, y: 155, lat: 35.1645, lng: 129.1607 },
         "haedong": { name: "海东龙宫寺", x: 865, y: 55, lat: 35.1880, lng: 129.2230 },
+        "skylineluge": { name: "Skyline Luge 釜山", x: 900, y: 65, lat: 35.1945, lng: 129.2202 },
         "ilpum-hanwoo": { name: "一品韩牛", x: 780, y: 240, lat: 35.1640, lng: 129.1650 },
         "haeundae-beach": { name: "海云台海水浴场", x: 760, y: 105, lat: 35.1587, lng: 129.1604 },
         "cheongsapo-photo": { name: "青沙浦胶囊拍照点", x: 825, y: 115, lat: 35.1715, lng: 129.1890 },
@@ -147,6 +148,7 @@ window.TRIP_DATA = {
           "seomyeon",
           "haeundae",
           "haedong",
+          "skylineluge",
           "ilpum-hanwoo",
           "haeundae-beach",
           "cheongsapo-photo",
@@ -258,7 +260,7 @@ window.TRIP_DATA = {
     {
       date: "2026-09-28",
       dayLabel: "第3天 · 9月28日（周一）",
-      title: "海东龙宫寺 + 海云台 + 青沙浦拍胶囊",
+      title: "海东龙宫寺 + Skyline Luge + 海云台 + 青沙浦拍胶囊",
       hotel: "釜山站温德姆华美达安可酒店",
       hotelAddress: "부산 동구 중앙대로196번길 10（Dong-gu, Busan）",
       startCity: "釜山",
@@ -269,9 +271,11 @@ window.TRIP_DATA = {
         { time: "08:30", timezone: "+09:00", title: "釜山站 → 西面站 → 海云台站", mapQuery: "부산역", note: "1号线釜山站到西面站6站，换2号线到海云台站16站；全程地铁约 ₩1,800。", category: "metro" },
         { time: "09:15", timezone: "+09:00", title: "海云台站 → 海东龙宫寺", mapQuery: "해운대역", note: "7号出口转181/100/1001路公交，约25–30分钟，₩1,550。", category: "bus" },
         { time: "10:00", timezone: "+09:00", title: "海东龙宫寺", mapQuery: "해동용궁사", note: "韩国少见的临海寺院，免费，依山面海。【拍照机位】入口广场向下俯瞰「寺院+大海」的全景最佳；寺内極樂殿、龍門石橋与16罗汉像也出片。【怎么去】从公交站/停车场沿石阶一路下行即可到临海大殿。", category: "activity" },
-        { time: "12:00", timezone: "+09:00", title: "午餐：일품한우（一品韩牛·海云台）", mapQuery: "일품한우 해운대", note: "梅实韩牛生排骨专门店，无猪肉。", category: "meal" },
-        { time: "13:30", timezone: "+09:00", title: "海云台海水浴场 + 冬柏岛 / APEC世峰楼", mapQuery: "해운대해수욕장", note: "沿海步道平缓，适合慢慢散步拍照。", category: "activity" },
-        { time: "15:00", timezone: "+09:00", title: "青沙浦拍天空胶囊（不乘车）", mapQuery: "청사포 다릿돌전망대", note: "没买到胶囊票也没关系：直接去青沙浦다릿돌전망대(玻璃栈道)，可俯瞰沿海胶囊轨道与红白灯塔，是拍胶囊的最佳机位。交通：海云台站打车约10分钟(约₩6,000-8,000)，或乘公交100/139路到청사포下车，步行约5分钟。", category: "activity" },
+        { time: "11:15", timezone: "+09:00", title: "海东龙宫寺 → Skyline Luge 釜山（오시리아）", mapQuery: "스카이라인 루지 부산", note: "两者同在东部奥西利亚(오시리아)观光园区附近，打车约10分钟；也可乘100/139/181路等公交。", category: "bus" },
+        { time: "11:30", timezone: "+09:00", title: "Skyline Luge 釜山（스카이라인 루지 부산）", mapQuery: "스카이라인 루지 부산", note: "官网购票（英文）：https://busan.skylineluge.kr/pricing-packages/；平日约10:00–19:00营业，最后售票18:30，建议提前在线购票。", category: "activity", url: "https://busan.skylineluge.kr/pricing-packages/" },
+        { time: "13:00", timezone: "+09:00", title: "午餐：일품한우（一品韩牛·海云台）", mapQuery: "일품한우 해운대", note: "梅实韩牛生排骨专门店，无猪肉。", category: "meal" },
+        { time: "14:30", timezone: "+09:00", title: "海云台海水浴场 + 冬柏岛 / APEC世峰楼", mapQuery: "해운대해수욕장", note: "沿海步道平缓，适合慢慢散步拍照。", category: "activity" },
+        { time: "16:00", timezone: "+09:00", title: "青沙浦拍天空胶囊（不乘车）", mapQuery: "청사포 다릿돌전망대", note: "没买到胶囊票也没关系：直接去青沙浦다릿돌전망대(玻璃栈道)，可俯瞰沿海胶囊轨道与红白灯塔，是拍胶囊的最佳机位。交通：海云台站打车约10分钟(约₩6,000-8,000)，或乘公交100/139路到청사포下车，步行约5分钟。", category: "activity" },
         { time: "17:30", timezone: "+09:00", title: "晚餐：금수복국 본점（锦水福汤本店·海云台）", mapQuery: "금수복국 본점", note: "河豚汤/海鲜，无猪肉；如不吃河豚可换海鲜锅。", category: "meal" },
         { time: "19:00", timezone: "+09:00", title: "返回釜山站酒店", mapQuery: "부산역", note: "从海云台站搭2号线回西面站，换1号线到釜山站，约45分钟。", category: "metro" }
       ]
@@ -433,60 +437,24 @@ window.TRIP_DATA = {
   ],
 
   // 明洞药妆店与护肤推荐（适合 52 岁女性，重点：紧致提拉 / 祛斑美白 / 医美后养护）。
-  skincare: {
-    note: "以下为熟龄肌常见的紧致、淡斑与医美后修护选项；医美后请以修复霜 + 防晒为主，先避开含酸、A醇/视黄醇等刺激成分。",
-    stores: [
-      {
-        zh: "Olive Young 明洞旗舰店",
-        ko: "올리브영 명동본점",
-        en: "Olive Young Myeongdong",
-        note: "韩国最大连锁药妆店，护肤、彩妆、面膜齐全，适合一次买齐。"
-      },
-      {
-        zh: "乐天免税店 明洞店",
-        ko: "롯데면세점 명동점",
-        en: "Lotte Duty Free Myeongdong",
-        note: "高端护肤免税价；记得带护照办理免税/退税。"
-      },
-      {
-        zh: "新世界百货 明洞店",
-        ko: "신세계백화점 명동점",
-        en: "Shinsegae Department Store Myeongdong",
-        note: "专柜品牌多，可现场试用肤感。"
-      }
-    ],
-    groups: [
-      {
-        category: "紧致提拉",
-        items: [
-          { zh: "雪花秀 滋盈肌本精华", ko: "설화수 윤조에센스", en: "Sulwhasoo First Care Activating Serum" },
-          { zh: "后 · 秘贴精华", ko: "후 비첩자생에센스", en: "The History of Whoo Bichup Ja Saeng Essence" },
-          { zh: "AHC 视黄醇紧致精华", ko: "AHC 리얼 레티놀 세럼", en: "AHC Real Retinol Serum" }
-        ]
-      },
-      {
-        category: "祛斑美白",
-        items: [
-          { zh: "果达儿 青橘维C淡斑精华", ko: "구달 청귤 비타C 세럼", en: "Goodal Green Tangerine Vita C Serum" },
-          { zh: "美迪惠尔 维C亮肤面膜", ko: "메디힐 비타C 마스크", en: "Mediheal Vitamin C Mask" }
-        ]
-      },
-      {
-        category: "医美后养护",
-        items: [
-          { zh: "爱斯得拉 屏障修复霜", ko: "에스트라 아토베리어365 크림", en: "Aestura Atobarrier 365 Cream" },
-          { zh: "理肤泉 B5修复霜", ko: "라로슈포제 시카플라스트 밤 B5", en: "La Roche-Posay Cicaplast Baume B5" },
-          { zh: "Dr.Jart+ 积雪草修护系列", ko: "닥터자르트 시카페어", en: "Dr.Jart+ Cicapair" },
-          { zh: "柔恩莱 白桦树保湿防晒", ko: "라운드랩 자작나무 수분 선크림", en: "Round Lab Birch Juice Moisturizing Sunscreen" }
-        ]
-      }
-    ],
-    tips: [
-      "医美后 48 小时内暂停使用酸类、A醇/视黄醇、磨砂类产品，先以修复霜和防晒为主。",
-      "选购时认准韩文成分表（성분표），可用 Papago 拍照翻译。",
-      "Olive Young 常有 1+1 活动；满额退税记得在结账时出示护照。"
-    ]
-  },
+  // 常用韩语：同一句话同时标注中文、韩文和英文发音。
+  phrases: [
+    { zh: "你好", ko: "안녕하세요", pronunciation: "An-nyeong-ha-se-yo" },
+    { zh: "谢谢", ko: "감사합니다", pronunciation: "Gam-sa-ham-ni-da" },
+    { zh: "不好意思 / 打扰一下", ko: "실례합니다", pronunciation: "Sil-lye-ham-ni-da" },
+    { zh: "多少钱？", ko: "얼마예요?", pronunciation: "Eol-ma-ye-yo?" },
+    { zh: "请给我这个", ko: "이것 주세요", pronunciation: "I-geot ju-se-yo" },
+    { zh: "我不吃猪肉", ko: "저는 돼지고기를 못 먹어요", pronunciation: "Jeo-neun dwae-ji-go-gi-reul mot meo-geo-yo" },
+    { zh: "请不要放猪肉", ko: "돼지고기 빼 주세요", pronunciation: "Dwae-ji-go-gi ppae ju-se-yo" },
+    { zh: "这个不含猪肉吗？", ko: "이거 돼지고기 없어요?", pronunciation: "I-geo dwae-ji-go-gi eop-seo-yo?" },
+    { zh: "请给我菜单", ko: "메뉴 주세요", pronunciation: "Me-nyu ju-se-yo" },
+    { zh: "买单 / 结账", ko: "계산해 주세요", pronunciation: "Gye-san-hae ju-se-yo" },
+    { zh: "好吃", ko: "맛있어요", pronunciation: "Ma-sit-seo-yo" },
+    { zh: "地铁站在哪里？", ko: "지하철역이 어디예요?", pronunciation: "Ji-ha-cheol-yeok-i eo-di-ye-yo?" },
+    { zh: "洗手间在哪里？", ko: "화장실이 어디예요?", pronunciation: "Hwa-jang-sil-i eo-di-ye-yo?" },
+    { zh: "请去这里（给司机看）", ko: "여기로 가 주세요", pronunciation: "Yeo-gi-ro ga ju-se-yo" },
+    { zh: "请帮帮我", ko: "도와주세요", pronunciation: "Do-wa-ju-se-yo" }
+  ],
 
   // 赴韩旅游注意事项（页面最下方展示）。
   notes: {
