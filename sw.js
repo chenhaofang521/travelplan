@@ -1,14 +1,14 @@
 /* Service Worker：提供离线缓存，同时保证开发期更新能及时生效。 */
 
-const CACHE_NAME = "korea-trip-v22";
+const CACHE_NAME = "korea-trip-v23";
 
 // 预缓存的应用外壳文件。版本号与 index.html 中的引用保持一致。
 const APP_SHELL = [
   "./",
   "./index.html",
-  "./styles.css?v=20260922z",
-  "./app.js?v=20260922z",
-  "./data/trip-data.js?v=20260922z",
+  "./styles.css?v=20260925a",
+  "./app.js?v=20260925a",
+  "./data/trip-data.js?v=20260925a",
   "./vendor/leaflet/leaflet.css",
   "./vendor/leaflet/leaflet.js",
   "./vendor/leaflet/images/layers.png",
@@ -64,7 +64,7 @@ self.addEventListener("fetch", (event) => {
 
   // 共享账本/待办数据（JSONBin）必须始终读最新，网络优先、离线才回退缓存，
   // 避免读到缓存的旧账并覆盖掉最新数据。
-  if (url.hostname.includes("api.jsonbin.io")) {
+  if (url.hostname.includes("api.jsonbin.io") || url.hostname.includes("api.open-meteo.com")) {
     event.respondWith(
       fetch(request)
         .then((response) => {

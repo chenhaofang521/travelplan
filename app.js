@@ -157,6 +157,7 @@
             </button>
             <div class="day-body">
               <p class="day-hotel">${escapeHtml(hotelText)}</p>
+              <div class="day-weather" data-weather-index="${index}"><span class="weather-loading">加载天气中…</span></div>
               <div class="day-map-container" data-day-index="${index}"></div>
               <ol class="timeline">${stopsHtml}</ol>
             </div>
@@ -182,6 +183,60 @@
         }
       });
     });
+  }
+
+  // ---------- 每日天气预报 ----------
+  function weatherInfo(code) {
+    const c = Number(code);
+    if (c === 0) return { text: "晴", icon: "☀️" };
+    if (c >= 1 && c <= 3) return { text: "晴间多云", icon: "🌤️" };
+    if (c === 45 || c === 48) return { text: "雾/霾", icon: "🌫️" };
+    if (c >= 95) return { text: "雷阵雨", icon: "⛈️" };
+    if (c >= 80) return { text: "阵雨", icon: "🌦️" };
+    if (c >= 71) return { text: "雪", icon: "❄️" };
+    if (c >= 51) return { text: "雨", icon: "🌧️" };
+    return { text: "未知", icon: "🌡️" };
+  }
+
+  async function loadWeather() {
+    const slots = document.querySelectorAll(".day-weather");
+    for (const slot of slots) {
+      const index = Number(slot.dataset.weatherIndex);
+      const day = DATA.days[index];
+      if (!day || !day.weather) continue;
+
+      const { city, lat, lng } = day.weather;
+      const date = day.date;
+      try {
+        const url =
+          `https://api.open-meteo.com/v1/forecast` +
+          `?latitude=${lat}&longitude=${lng}` +
+          `&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max` +
+          `&timezone=Asia%2FSeoul&start_date=${date}&end_date=${date}`;
+        const response = await fetch(url, { cache: "no-store" });
+        if (!response.ok) throw new Error("HTTP " + response.status);
+        const payload = await response.json();
+        const daily = payload.daily;
+        if (!daily || !Array.isArray(daily.time) || !daily.time.length) {
+          throw new Error("no daily data");
+        }
+        const idx = daily.time.indexOf(date);
+        if (idx === -1) throw new Error("date not found");
+
+        const code = daily.weather_code[idx];
+        const tmax = daily.temperature_2m_max[idx];
+        const tmin = daily.temperature_2m_min[idx];
+        const pop = daily.precipitation_probability_max ? daily.precipitation_probability_max[idx] : null;
+        const info = weatherInfo(code);
+        const popText = Number.isFinite(pop) ? ` · 降水 ${Math.round(pop)}%` : "";
+        slot.innerHTML =
+          `<span class="weather-icon">${info.icon}</span>` +
+          `<span class="weather-text">${escapeHtml(city)} ${escapeHtml(info.text)} · ${Math.round(tmax)}℃ / ${Math.round(tmin)}℃${popText}</span>`;
+      } catch (error) {
+        console.warn("天气加载失败", date, error);
+        slot.innerHTML = `<span class="weather-icon">🌡️</span><span class="weather-text">${escapeHtml(city)} 天气暂不可用</span>`;
+      }
+    }
   }
 
   // ---------- 3. 每日真实地图 ----------
@@ -750,6 +805,7 @@
     renderTransport();
     renderOverview();
     renderItinerary();
+    loadWeather();
     ensureDayMap(0);
     renderExpenseSelects();
     initExpenseForm();

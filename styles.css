@@ -389,6 +389,33 @@ h1 {
   font-size: 13px;
 }
 
+.day-weather {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 14px;
+  padding: 9px 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--card-soft);
+  color: var(--text);
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.weather-icon {
+  font-size: 18px;
+  line-height: 1;
+}
+
+.weather-text {
+  min-width: 0;
+}
+
+.weather-loading {
+  color: var(--text-soft);
+}
+
 .timeline {
   position: relative;
   padding-left: 18px;

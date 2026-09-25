@@ -134,6 +134,7 @@ window.TRIP_DATA = {
           "jagalchi",
           "biff",
           "nampo-seolleongtang",
+          "spaland",
           "ramada"
         ]
       },
@@ -150,7 +151,6 @@ window.TRIP_DATA = {
           "haeundae-beach",
           "cheongsapo-photo",
           "geumsu-bokguk",
-          "spaland",
           "ramada"
         ]
       },
@@ -222,6 +222,7 @@ window.TRIP_DATA = {
       hotelAddress: "부산 동구 중앙대로196번길 10（Dong-gu, Busan）",
       startCity: "香港",
       endCity: "釜山",
+      weather: { city: "釜山", lat: 35.1796, lng: 129.0756 },
       stops: [
         { time: "07:55", timezone: "+08:00", title: "香港国际机场", mapQuery: "香港国际机场", note: "CX434 出发，飞往首尔仁川机场。", category: "flight" },
         { time: "12:40", timezone: "+09:00", title: "仁川国际机场", mapQuery: "인천국제공항", note: "入境、取行李；购买并充值 T-money，取少量韩元现金。", category: "flight" },
@@ -235,11 +236,12 @@ window.TRIP_DATA = {
     {
       date: "2026-09-27",
       dayLabel: "第2天 · 9月27日（周日）",
-      title: "甘川文化村 + 札嘎其 + 釜山老城区",
+      title: "甘川文化村 + 札嘎其 + 釜山老城区 + SPALAND 汗蒸",
       hotel: "釜山站温德姆华美达安可酒店",
       hotelAddress: "부산 동구 중앙대로196번길 10（Dong-gu, Busan）",
       startCity: "釜山",
       endCity: "釜山",
+      weather: { city: "釜山", lat: 35.1796, lng: 129.0756 },
       map: { local: "busan", label: "釜山市区活动" },
       stops: [
         { time: "09:00", timezone: "+09:00", title: "釜山站 → 土城站", mapQuery: "부산역", note: "地铁1号线，釜山站到土城站共4站，约10分钟，₩1,600。", category: "metro" },
@@ -248,17 +250,20 @@ window.TRIP_DATA = {
         { time: "12:15", timezone: "+09:00", title: "午餐：신경북상회（新庆北商会·札嘎其海鲜）", mapQuery: "신경북상회 자갈치시장", note: "螃蟹/龙虾/生鱼片等海鲜，无猪肉。", category: "meal" },
         { time: "13:45", timezone: "+09:00", title: "BIFF广场 / 国际市场 / 龙头山公园", mapQuery: "BIFF광장", note: "步行逛老城区；可在 BIFF 广场吃瓜子糖饼。", category: "activity" },
         { time: "17:00", timezone: "+09:00", title: "晚餐：남포설렁탕（南浦雪浓汤）", mapQuery: "남포설렁탕", note: "24小时牛骨汤老店；点雪浓汤/牛排骨汤，勿点含猪肉的饺子。", category: "meal" },
-        { time: "18:30", timezone: "+09:00", title: "返回釜山站酒店", mapQuery: "부산역", note: "札嘎其站搭1号线回釜山站，3站，₩1,600。", category: "metro" }
+        { time: "18:15", timezone: "+09:00", title: "前往 SPALAND（新世界 Centum City）", mapQuery: "센텀시티", note: "从南浦/札嘎其搭1号线到西面站，换2号线到 Centum City（센텀시티）站，12号出口约110米；全程约45–55分钟。", category: "metro" },
+        { time: "19:00", timezone: "+09:00", title: "SPALAND 汗蒸（新世界 Centum City）", mapQuery: "스파랜드 센텀시티", note: "韩国顶级汗蒸/温泉，多种主题汗蒸房与足浴；新世界百货1层，营业至22:00（21:00最后入场），需出示证件，建议提前预约/购票。", category: "activity" },
+        { time: "21:00", timezone: "+09:00", title: "返回釜山站酒店", mapQuery: "부산역", note: "从 Centum City 站搭2号线回西面站，换1号线到釜山站。", category: "metro" }
       ]
     },
     {
       date: "2026-09-28",
       dayLabel: "第3天 · 9月28日（周一）",
-      title: "海东龙宫寺 + 海云台 + 青沙浦拍胶囊 + SPALAND 汗蒸",
+      title: "海东龙宫寺 + 海云台 + 青沙浦拍胶囊",
       hotel: "釜山站温德姆华美达安可酒店",
       hotelAddress: "부산 동구 중앙대로196번길 10（Dong-gu, Busan）",
       startCity: "釜山",
       endCity: "釜山",
+      weather: { city: "釜山", lat: 35.1796, lng: 129.0756 },
       map: { local: "busan", label: "釜山市区活动" },
       stops: [
         { time: "08:30", timezone: "+09:00", title: "釜山站 → 西面站 → 海云台站", mapQuery: "부산역", note: "1号线釜山站到西面站6站，换2号线到海云台站16站；全程地铁约 ₩1,800。", category: "metro" },
@@ -268,8 +273,7 @@ window.TRIP_DATA = {
         { time: "13:30", timezone: "+09:00", title: "海云台海水浴场 + 冬柏岛 / APEC世峰楼", mapQuery: "해운대해수욕장", note: "沿海步道平缓，适合慢慢散步拍照。", category: "activity" },
         { time: "15:00", timezone: "+09:00", title: "青沙浦拍天空胶囊（不乘车）", mapQuery: "청사포 다릿돌전망대", note: "没买到胶囊票也没关系：直接去青沙浦다릿돌전망대(玻璃栈道)，可俯瞰沿海胶囊轨道与红白灯塔，是拍胶囊的最佳机位。交通：海云台站打车约10分钟(约₩6,000-8,000)，或乘公交100/139路到청사포下车，步行约5分钟。", category: "activity" },
         { time: "17:30", timezone: "+09:00", title: "晚餐：금수복국 본점（锦水福汤本店·海云台）", mapQuery: "금수복국 본점", note: "河豚汤/海鲜，无猪肉；如不吃河豚可换海鲜锅。", category: "meal" },
-        { time: "19:00", timezone: "+09:00", title: "SPALAND 汗蒸（新世界 Centum City）", mapQuery: "스파랜드 센텀시티", note: "韩国顶级汗蒸/温泉，多种主题汗蒸房与足浴；地铁2号线 Centum City（센텀시티）站12号出口约110米，新世界百货1层。营业至22:00（21:00最后入场），需出示证件，建议提前预约/购票。", category: "activity" },
-        { time: "21:00", timezone: "+09:00", title: "返回釜山站酒店", mapQuery: "부산역", note: "从 Centum City 站搭2号线回西面站，换1号线到釜山站。", category: "metro" }
+        { time: "19:00", timezone: "+09:00", title: "返回釜山站酒店", mapQuery: "부산역", note: "从海云台站搭2号线回西面站，换1号线到釜山站，约45分钟。", category: "metro" }
       ]
     },
     {
@@ -280,6 +284,7 @@ window.TRIP_DATA = {
       hotelAddress: "서울 중구 남대문로 78（Jung-gu, Seoul）",
       startCity: "釜山",
       endCity: "首尔",
+      weather: { city: "首尔", lat: 37.5665, lng: 126.9780 },
       stops: [
         { time: "09:00", timezone: "+09:00", title: "退房前往釜山站", mapQuery: "부산역", note: "从酒店步行到釜山站。", category: "hotel" },
         { time: "10:28", timezone: "+09:00", title: "KTX026 釜山 → 首尔", mapQuery: "부산역", note: "10:28 发车，13:04 到首尔站；座位 12车5A/5B。", category: "train" },
@@ -301,6 +306,7 @@ window.TRIP_DATA = {
       hotelAddress: "서울 중구 남대문로 78（Jung-gu, Seoul）",
       startCity: "首尔",
       endCity: "首尔",
+      weather: { city: "首尔", lat: 37.5665, lng: 126.9780 },
       map: { local: "seoul", label: "首尔市区活动" },
       stops: [
         { time: "09:30", timezone: "+09:00", title: "明洞 → 安国站", mapQuery: "명동역", note: "4号线明洞到忠武路1站，换3号线到安国站2站；共3站，₩1,550。", category: "metro" },
@@ -319,6 +325,7 @@ window.TRIP_DATA = {
       hotelAddress: "서울 중구 남대문로 78（Jung-gu, Seoul）",
       startCity: "首尔",
       endCity: "首尔",
+      weather: { city: "首尔", lat: 37.5665, lng: 126.9780 },
       map: { local: "seoul", label: "首尔市区活动" },
       stops: [
         { time: "10:00", timezone: "+09:00", title: "景福宫守门将换岗仪式", mapQuery: "경복궁", note: "换岗仪式约10:00/14:00，周四正常。", category: "activity" },
@@ -337,6 +344,7 @@ window.TRIP_DATA = {
       hotelAddress: "서울 중구 남대문로 78（Jung-gu, Seoul）",
       startCity: "首尔",
       endCity: "城南市",
+      weather: { city: "城南市", lat: 37.3943, lng: 127.1103 },
       stops: [
         { time: "09:30", timezone: "+09:00", title: "前往城南市医美诊所（미금역 미도프라자）", mapQuery: "미금역", note: "地铁：4号线明洞站→忠武路站（1站）换3号线→新沙站（6站）换新盆唐线→美金站（9站），约55–65分钟，普通卡约₩4,100（含新盆唐线附加费）。1号出口步行约100米即到 Mido Plaza。想省事可打车约₩45,000–55,000、约40–60分钟。", category: "transport" },
         { time: "10:00", timezone: "+09:00", title: "城南市医美（미도프라자 / Mido Plaza）", mapQuery: "경기도 성남시 분당구 성남대로 168", note: "地址：경기도 성남시 분당구 성남대로 168（금곡동 미도프라자）；英文：168 Seongnam-daero, Bundang-gu, Seongnam-si, Gyeonggi-do；미금역 1号出口约100米。提前15分钟到，带护照并按诊所术前说明执行。", category: "appointment" },
@@ -354,6 +362,7 @@ window.TRIP_DATA = {
       hotelAddress: null,
       startCity: "首尔",
       endCity: "香港",
+      weather: { city: "首尔", lat: 37.5665, lng: 126.9780 },
       stops: [
         { time: "09:00", timezone: "+09:00", title: "退房", mapQuery: "이비스 앰배서더 서울 명동", note: "早餐后办理退房，确认行李。", category: "hotel" },
         { time: "09:30", timezone: "+09:00", title: "机场大巴6015 → 仁川T1", mapQuery: "명동역", note: "在宜必思明洞酒店门口上车，约70–90分钟，₩17,000。", category: "bus" },
@@ -412,7 +421,7 @@ window.TRIP_DATA = {
       items: [
         { id: "ktx-busan", text: "购买 9.26 首尔→釜山 KTX" },
         { id: "sky-capsule", text: "天空胶囊不乘车：改去青沙浦拍照点" },
-        { id: "spaland", text: "预约 9.28 SPALAND 汗蒸（新世界 Centum City）" },
+        { id: "spaland", text: "预约 9.27 SPALAND 汗蒸（新世界 Centum City）" },
         { id: "kimchi", text: "预约 9.29 明洞泡菜体验" },
         { id: "clinic-address", text: "确认城南医美诊所名称/预约（미금역 미도프라자）" },
         { id: "apps", text: "安装 Naver Map、Papago、KORAIL" },
